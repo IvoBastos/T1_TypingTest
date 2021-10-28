@@ -1,5 +1,5 @@
 # T1_TypingTest
 
-Só p testar se funciona 
+Só p testar se funciona
 
-Está a funcionar
+Teste
