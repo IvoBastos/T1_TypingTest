@@ -63,7 +63,7 @@ def print_my_dict():
     my_dict["number_of_types"] = cnt_correct_letters + cnt_wrong_letters
     my_dict["test_duration"] = cnt_time
     my_dict["test_end"] = ctime()
-    my_dict["test_start"] = ctime()
+
     my_dict["type_average_duration"] = avg_times
     my_dict["type_hit_average_duration"] = avg_correct_times
     my_dict["type_miss_average_duration"] = avg_incorrect_times
@@ -74,6 +74,7 @@ def print_my_dict():
 
 
 def typing_test_max_val(max_value):
+    my_dict["test_start"] = ctime()
     num_letters_to_type = max_value
     global cnt_letters
     global cnt_correct_letters
@@ -127,6 +128,7 @@ def typing_test_max_val(max_value):
 
 
 def typing_test_max_time(max_value):
+    my_dict["test_start"] = ctime()
     max_time_to_type = max_value
     global cnt_letters
     global cnt_correct_letters
