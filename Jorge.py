@@ -10,7 +10,7 @@ from collections import namedtuple
 import pprint
 
 Input = namedtuple("Input", ["requested", "received", "duration"])
-my_dict = {
+Statistics = {
     "accuracy": 0.0,
     "inputs": [Input(requested="", received="", duration=0.0)],
     "number_of_hits": 0,
@@ -57,24 +57,24 @@ def average(lst):
 
 
 def print_my_dict():
-    my_dict["accuracy"] = (cnt_correct_letters / (cnt_correct_letters + cnt_wrong_letters)) * 100
-    my_dict["inputs"] = inputs_list
-    my_dict["number_of_hits"] = cnt_correct_letters
-    my_dict["number_of_types"] = cnt_correct_letters + cnt_wrong_letters
-    my_dict["test_duration"] = cnt_time
-    my_dict["test_end"] = ctime()
+    Statistics["accuracy"] = (cnt_correct_letters / (cnt_correct_letters + cnt_wrong_letters)) * 100
+    Statistics["inputs"] = inputs_list
+    Statistics["number_of_hits"] = cnt_correct_letters
+    Statistics["number_of_types"] = cnt_correct_letters + cnt_wrong_letters
+    Statistics["test_duration"] = cnt_time
+    Statistics["test_end"] = ctime()
 
-    my_dict["type_average_duration"] = avg_times
-    my_dict["type_hit_average_duration"] = avg_correct_times
-    my_dict["type_miss_average_duration"] = avg_incorrect_times
+    Statistics["type_average_duration"] = avg_times
+    Statistics["type_hit_average_duration"] = avg_correct_times
+    Statistics["type_miss_average_duration"] = avg_incorrect_times
 
     print(Fore.GREEN + "Test completed. Results:" + Style.RESET_ALL)
     pp = pprint.PrettyPrinter(indent=4)
-    pp.pprint(my_dict)
+    pp.pprint(Statistics)
 
 
 def typing_test_max_val(max_value):
-    my_dict["test_start"] = ctime()
+    Statistics["test_start"] = ctime()
     num_letters_to_type = max_value
     global cnt_letters
     global cnt_correct_letters
@@ -128,7 +128,7 @@ def typing_test_max_val(max_value):
 
 
 def typing_test_max_time(max_value):
-    my_dict["test_start"] = ctime()
+    Statistics["test_start"] = ctime()
     max_time_to_type = max_value
     global cnt_letters
     global cnt_correct_letters
