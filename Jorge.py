@@ -56,7 +56,7 @@ def average(lst):
         return 0
 
 
-def print_my_dict():
+def print_dict():
     Statistics["accuracy"] = (cnt_correct_letters / (cnt_correct_letters + cnt_wrong_letters)) * 100
     Statistics["inputs"] = inputs_list
     Statistics["number_of_hits"] = cnt_correct_letters
@@ -124,7 +124,7 @@ def typing_test_max_val(max_value):
     avg_correct_times = average(read_correct_times)
     avg_incorrect_times = average(read_incorrect_times)
 
-    print_my_dict()
+    print_dict()
 
 
 def typing_test_max_time(max_value):
@@ -176,7 +176,7 @@ def typing_test_max_time(max_value):
     avg_correct_times = average(read_correct_times)
     avg_incorrect_times = average(read_incorrect_times)
 
-    print_my_dict()
+    print_dict()
 
 
 def main():
