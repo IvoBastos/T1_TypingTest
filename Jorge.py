@@ -105,8 +105,9 @@ def typing_test_max_val(max_value):
                 cnt_correct_letters += 1
                 correct_letters.append(random_letter)
             elif typed_letter == " ":
-                print(Fore.BLACK + Back.YELLOW + "You stop the test!" + Style.RESET_ALL)
+                print(Fore.BLACK + Back.YELLOW + "You stopped the test!" + Style.RESET_ALL)
                 exit()
+
             else:
                 interm_time = time() - interm_tot_time
                 read_times.append(interm_time)
@@ -145,6 +146,7 @@ def typing_test_max_time(max_value):
 
     while True:
         if cnt_time >= max_time_to_type:
+            print('Current Test Duration '+ str(cnt_time )+' exceeds maximum of '+ str(max_time_to_type))
             break
         else:
             cnt_time = time() - init_time
@@ -159,7 +161,7 @@ def typing_test_max_time(max_value):
                 cnt_correct_letters += 1
                 correct_letters.append(random_letter)
             elif typed_letter == " ":
-                print(Fore.BLACK + Back.YELLOW + "You stop the test!" + Style.RESET_ALL)
+                print(Fore.BLACK + Back.YELLOW + "You stopped the test!" + Style.RESET_ALL)
                 exit()
             else:
                 interm_time = time() - interm_tot_time
