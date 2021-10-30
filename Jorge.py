@@ -3,7 +3,7 @@
 import string
 import random
 import readchar
-from colorama import Fore, Back, Style
+from colorama import Fore, Style, Back
 from time import time, ctime
 import argparse
 from collections import namedtuple
@@ -103,6 +103,9 @@ def typing_test_max_val(max_value):
                 interm_tot_time = time()
                 cnt_correct_letters += 1
                 correct_letters.append(random_letter)
+            elif typed_letter == " ":
+                print(Fore.BLACK + Back.YELLOW + "You stop the test!" + Style.RESET_ALL)
+                exit()
             else:
                 interm_time = time() - interm_tot_time
                 read_times.append(interm_time)
@@ -110,6 +113,7 @@ def typing_test_max_val(max_value):
                 interm_tot_time = time()
                 cnt_wrong_letters += 1
                 wrong_letters.append(random_letter)
+
             print("You typed the letter " + Fore.BLUE + typed_letter + Style.RESET_ALL)
             inputs_list.append(Input(requested=random_letter, received=typed_letter, duration=interm_time))
 
@@ -152,6 +156,9 @@ def typing_test_max_time(max_value):
                 interm_tot_time = time()
                 cnt_correct_letters += 1
                 correct_letters.append(random_letter)
+            elif typed_letter == " ":
+                print(Fore.BLACK + Back.YELLOW + "You stop the test!" + Style.RESET_ALL)
+                exit()
             else:
                 interm_time = time() - interm_tot_time
                 read_times.append(interm_time)
