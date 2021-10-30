@@ -207,6 +207,7 @@ def main():
         else:
             modo_teclas(args['MAX_VALUE'])
 
+    print(Fore.BLUE + "You finished the test, here are your results:" + Style.RESET_ALL)
     pprint(Statistics)
 
 
