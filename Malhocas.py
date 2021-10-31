@@ -115,8 +115,6 @@ def modo_teclas(x):
     average_hits = []
     average_miss = []
 
-
-
 #Este bloco determina a data de inicio em segundos e em data
     seconds = time.time()
     tempo_inicio = time.ctime(seconds)
