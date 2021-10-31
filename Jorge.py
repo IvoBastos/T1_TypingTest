@@ -35,7 +35,7 @@ cnt_correct_letters = 0
 cnt_wrong_letters = 0
 
 # contagem de tempo
-init_time = time()
+init_time = 0
 interm_tot_time = time()
 cnt_time = 0
 interm_time = 0
@@ -45,6 +45,7 @@ read_incorrect_times = []
 avg_times = 0.0
 avg_correct_times = 0.0
 avg_incorrect_times = 0.0
+start_time = ""
 
 inputs_list = []
 
@@ -63,7 +64,7 @@ def print_dict():
     Statistics["number_of_types"] = cnt_correct_letters + cnt_wrong_letters
     Statistics["test_duration"] = cnt_time
     Statistics["test_end"] = ctime()
-
+    Statistics["test_start"] = start_time
     Statistics["type_average_duration"] = avg_times
     Statistics["type_hit_average_duration"] = avg_correct_times
     Statistics["type_miss_average_duration"] = avg_incorrect_times
@@ -74,7 +75,6 @@ def print_dict():
 
 
 def typing_test_max_val(max_value):
-    Statistics["test_start"] = ctime()
     num_letters_to_type = max_value
     global cnt_letters
     global cnt_correct_letters
@@ -88,6 +88,10 @@ def typing_test_max_val(max_value):
     global random_letter
     global typed_letter
     global inputs_list
+    global start_time
+    global init_time
+    start_time = ctime()
+    init_time = time()
 
     while True:
         if cnt_letters == num_letters_to_type:
@@ -129,7 +133,6 @@ def typing_test_max_val(max_value):
 
 
 def typing_test_max_time(max_value):
-    Statistics["test_start"] = ctime()
     max_time_to_type = max_value
     global cnt_letters
     global cnt_correct_letters
@@ -143,10 +146,14 @@ def typing_test_max_time(max_value):
     global random_letter
     global typed_letter
     global inputs_list
+    global start_time
+    global init_time
+    start_time = ctime()
+    init_time = time()
 
     while True:
         if cnt_time >= max_time_to_type:
-            print('Current Test Duration '+ str(cnt_time )+' exceeds maximum of '+ str(max_time_to_type))
+            print('Current Test Duration ' + str(cnt_time) + ' exceeds maximum of ' + str(max_time_to_type))
             break
         else:
             cnt_time = time() - init_time
@@ -196,12 +203,16 @@ def main():
         print("Test running up to " + str(args["max_value"]) + " seconds.")
         print("Press any key to start...")
         pressed_continue = readchar.readkey()
-        typing_test_max_time(args["max_value"])
-    else:
+        if pressed_continue:
+            typing_test_max_time(args["max_value"])
+    elif args["max_value"]:
         print("Test running up to " + str(args["max_value"]) + " inputs.")
         print("Press any key to start...")
         pressed_continue = readchar.readkey()
-        typing_test_max_val(args["max_value"])
+        if pressed_continue:
+            typing_test_max_val(args["max_value"])
+    else:
+        print("No mode selected! Please use -h command")
 
 
 if __name__ == '__main__':
