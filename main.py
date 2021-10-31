@@ -7,6 +7,7 @@ from colorama import Fore, Style, Back
 from time import time, ctime
 import argparse
 from collections import namedtuple
+import time
 import pprint
 
 Input = namedtuple("Input", ["requested", "received", "duration"])
@@ -62,6 +63,8 @@ def main():
             print('Max_value')
         else:
             print('No mode selected')
+            x = tic()
+            print(str(x))
 
 
     #  print(Fore.BLUE + "You finished the test, here are your results:" + Style.RESET_ALL)
