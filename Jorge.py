@@ -79,7 +79,7 @@ def print_dict():
 
 
 # número de inputs fixo
-def typing_test_max_val(max_value):
+def typing_test_max_val(max_inputs):
     global cnt_letters
     global cnt_correct_letters
     global cnt_wrong_letters
@@ -97,7 +97,7 @@ def typing_test_max_val(max_value):
     start_time = ctime()            # tempo inicial formato data
     init_time = time()              # tempo inicial em segundos
     interm_tot_time = init_time     # tempo intermédio total
-    num_letters_to_type = max_value # número de letras máximo do modo (inserido pelo utilizador)
+    num_letters_to_type = max_inputs # número de letras máximo do modo (inserido pelo utilizador)
 
     while True:
         if cnt_letters == num_letters_to_type:
@@ -138,7 +138,7 @@ def typing_test_max_val(max_value):
     print_dict()
 
 
-def typing_test_max_time(max_value):
+def typing_test_max_time(max_time):
     global cnt_letters
     global cnt_correct_letters
     global cnt_wrong_letters
@@ -156,7 +156,7 @@ def typing_test_max_time(max_value):
     start_time = ctime()            # tempo inicial formato data
     init_time = time()              # tempo inicial em segundos
     interm_tot_time = init_time     # tempo intermédio total
-    max_time_to_type = max_value    # tempo máximo do modo (inserido pelo utilizador)
+    max_time_to_type = max_time    # tempo máximo do modo (inserido pelo utilizador)
 
     while True:
         try:
