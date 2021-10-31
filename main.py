@@ -22,6 +22,25 @@ Statistics = {
     "type_hit_average_duration": 0.0,
     "type_miss_average_duration": 0.0
 }
+def tic():
+    seconds = time.time()
+    tempo_atual = time.localtime(seconds)
+    tempo_segundos = time.mktime(tempo_atual)
+    return tempo_segundos
+
+
+def tac():
+    seconds = time.time()
+    tempo_atual = time.localtime(seconds)
+    tempo_segundos = time.mktime(tempo_atual)
+    return tempo_segundos
+
+
+
+
+
+
+
 
 
 def main():
