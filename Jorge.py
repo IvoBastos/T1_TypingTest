@@ -160,7 +160,7 @@ def typing_test_max_time(max_time):
     max_time_to_type = max_time    # tempo máximo do modo (inserido pelo utilizador)
 
     while True:
-        try:
+        try: # "try - except" inserido para o caso do utilizador não inserir um tempo no "-mv"
             if cnt_time >= max_time_to_type:
                 print('Current test duration ' + str(cnt_time) + ' exceeds maximum of ' + str(max_time_to_type) + ".")
                 break
