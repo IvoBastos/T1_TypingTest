@@ -17,12 +17,7 @@ Input = namedtuple('Input', ['Requested', 'Received'])
 
 Statistics={'Accuracy': 0.0, 'Inputs': [], 'Number_of_Hits': 0, "Number_of_Types": 0, 'Test_Start': '', 'Test_End': '', 'Test_Duration': 0.0, 'Type_Average_Duration': 0.0, "Type_Hit_Average_Duration": 0.0, "Type_Miss_Average_Duration": 0.0}
 
-
-# argumentos de entrada, a alterar
-#tempo_max = 0
-#teclas_max = 0
 letters = "abcdefghijklmnopqrstuvwxyz"
-
 
 def tic():
     seconds = time.time()
