@@ -181,24 +181,24 @@ def modo_teclas(x):
     Statistics['Type_Miss_Average_Duration'] = media_miss
 
 
-
-
-
 def main():
-    parser = argparse.ArgumentParser(description='PSR typing test')
-    parser.add_argument('--MAX_VALUE', type=int, help='Max number of secs for time mode or maximum number of inputs for number of inputs mode.')
-    parser.add_argument('--utm', type=bool, help='Defines if time mode is used.')
+    parser = argparse.ArgumentParser(description=' PSR typing test ')
+    parser.add_argument('-mv', '--max_value', type=int,
+                        help='Max number of secs for time mode or maximum number of inputs for number of inputs mode.')
+    parser.add_argument('-utm', '--use_time_mode', type=bool, help='Defines if time mode is used.')
 
     args = vars(parser.parse_args())
     print(args)
 
     print("Typing test PSR. Press any key to begin the test")
-    pressed_continue=readchar.readkey()
+    pressed_continue = readchar.readkey()
     if pressed_continue:
         if args['utm']:
-            modo_tempo(args['MAX_VALUE'])
+            modo_tempo(args['max_value'])
+        elif args['mv']:
+            modo_teclas(args['max_value'])
         else:
-            modo_teclas(args['MAX_VALUE'])
+            print('No mode selected')
 
     print(Fore.BLUE + "You finished the test, here are your results:" + Style.RESET_ALL)
     pprint(Statistics)
@@ -206,3 +206,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+

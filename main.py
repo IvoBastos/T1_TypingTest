@@ -26,7 +26,7 @@ Statistics = {
 
 def main():
     parser = argparse.ArgumentParser(description=' PSR typing test ')
-    parser.add_argument('-mv', '--max_value', type=int, help='Max number of secs for time mode or maximum number of inputs for number of inputs mode.')
+    parser.add_argument('-mv', '--max_value', type=int, help= 'Max number of secs for time mode or maximum number of inputs for number of inputs mode.')
     parser.add_argument('-utm', '--use_time_mode', type=bool, help='Defines if time mode is used.')
 
     args = vars(parser.parse_args())
@@ -35,13 +35,18 @@ def main():
     print("Typing test PSR. Press any key to begin the test")
     pressed_continue=readchar.readkey()
     if pressed_continue:
-        if args['utm']:
-            modo_tempo(args['MAX_VALUE'])
+        if args['use_time_mode']:
+           #modo_tempo(args['max_value'])
+            print('Modo_Tempo')
+        elif args['max_value']:
+            #modo_teclas(args['max_value'])
+            print('Max_value')
         else:
-            modo_teclas(args['MAX_VALUE'])
+            print('No mode selected')
 
-    print(Fore.BLUE + "You finished the test, here are your results:" + Style.RESET_ALL)
-    pprint(Statistics)
+
+    #  print(Fore.BLUE + "You finished the test, here are your results:" + Style.RESET_ALL)
+    #  pprint(Statistics)
 
 
 if __name__ == "__main__":
