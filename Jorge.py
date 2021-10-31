@@ -34,7 +34,7 @@ random_letter = ""          # letra gerada pelo programa aleatóriamente
 correct_letters = []        # letras inseridas corretas
 wrong_letters = []          # letras inseridas incorretas
 cnt_correct_letters = 0     # contador de letras corretas
-cnt_wrong_letters = 0       # contador de letras incorretas
+cnt_incorrect_letters = 0   # contador de letras incorretas
 
 # contagem de tempo
 init_time = 0               # tempo de início do modo
@@ -62,10 +62,10 @@ def average(lst):
 
 # função para print do dicionário
 def print_dict():
-    Statistics["accuracy"] = (cnt_correct_letters / (cnt_correct_letters + cnt_wrong_letters)) * 100
+    Statistics["accuracy"] = (cnt_correct_letters / (cnt_correct_letters + cnt_incorrect_letters)) * 100
     Statistics["inputs"] = inputs_list
     Statistics["number_of_hits"] = cnt_correct_letters
-    Statistics["number_of_types"] = cnt_correct_letters + cnt_wrong_letters
+    Statistics["number_of_types"] = cnt_correct_letters + cnt_incorrect_letters
     Statistics["test_duration"] = cnt_time
     Statistics["test_end"] = ctime()
     Statistics["test_start"] = start_time
@@ -82,7 +82,7 @@ def print_dict():
 def typing_test_max_val(max_inputs):
     global cnt_letters
     global cnt_correct_letters
-    global cnt_wrong_letters
+    global cnt_incorrect_letters
     global interm_time
     global interm_tot_time
     global avg_times
@@ -124,7 +124,7 @@ def typing_test_max_val(max_inputs):
                 read_times.append(interm_time)
                 read_incorrect_times.append(interm_time)
                 interm_tot_time = time()
-                cnt_wrong_letters += 1
+                cnt_incorrect_letters += 1
                 wrong_letters.append(random_letter)
 
             print("You typed the letter " + Fore.BLUE + typed_letter + Style.RESET_ALL)
@@ -142,7 +142,7 @@ def typing_test_max_val(max_inputs):
 def typing_test_max_time(max_time):
     global cnt_letters
     global cnt_correct_letters
-    global cnt_wrong_letters
+    global cnt_incorrect_letters
     global interm_time
     global interm_tot_time
     global avg_times
@@ -184,7 +184,7 @@ def typing_test_max_time(max_time):
                     read_times.append(interm_time)
                     read_incorrect_times.append(interm_time)
                     interm_tot_time = time()
-                    cnt_wrong_letters += 1
+                    cnt_incorrect_letters += 1
                     wrong_letters.append(random_letter)
                 print("You typed the letter " + Fore.BLUE + typed_letter + Style.RESET_ALL)
                 inputs_list.append(Input(requested=random_letter, received=typed_letter, duration=interm_time))
