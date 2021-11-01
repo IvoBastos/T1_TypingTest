@@ -94,9 +94,9 @@ def typing_test_max_val(max_inputs):
     global inputs_list
     global start_time
     global init_time
-    start_time = ctime()            # tempo inicial formato data
-    init_time = time()              # tempo inicial em segundos
-    interm_tot_time = init_time     # tempo intermédio total
+    start_time = ctime()             # tempo inicial formato data
+    init_time = time()               # tempo inicial em segundos
+    interm_tot_time = init_time      # tempo intermédio total
     num_letters_to_type = max_inputs # número de letras máximo do modo (inserido pelo utilizador)
 
     while True:
@@ -157,46 +157,50 @@ def typing_test_max_time(max_time):
     start_time = ctime()            # tempo inicial formato data
     init_time = time()              # tempo inicial em segundos
     interm_tot_time = init_time     # tempo intermédio total
-    max_time_to_type = max_time    # tempo máximo do modo (inserido pelo utilizador)
+    max_time_to_type = max_time     # tempo máximo do modo (inserido pelo utilizador)
 
-    while True:
-        try: # "try - except" inserido para o caso do utilizador não inserir um tempo no "-mv"
-            if cnt_time >= max_time_to_type:
-                print('Current test duration ' + str(cnt_time) + ' exceeds maximum of ' + str(max_time_to_type) + ".")
-                break
+    try:  # "try - except" inserido para o caso do utilizador não inserir um tempo no "-mv"
+        while cnt_time <= max_time_to_type:
+            # if cnt_time >= max_time_to_type:
+            #     print('Current test duration ' + str(cnt_time) + ' exceeds maximum of ' + str(max_time_to_type) + ".")
+            #     break
+            # else:
+            #
+            random_letter = random.choice(string.ascii_lowercase)
+            print("Type the letter: " + Fore.GREEN + random_letter + Style.RESET_ALL)
+            typed_letter = readchar.readkey()
+            if typed_letter == random_letter:
+                interm_time = time() - interm_tot_time
+                read_times.append(interm_time)
+                read_correct_times.append(interm_time)
+                interm_tot_time = time()
+                cnt_correct_letters += 1
+                correct_letters.append(random_letter)
+            elif typed_letter == " ":
+                print(Fore.BLACK + Back.YELLOW + "You stopped the test!" + Style.RESET_ALL)
+                exit()
             else:
-                cnt_time = time() - init_time
-                random_letter = random.choice(string.ascii_lowercase)
-                print("Type the letter: " + Fore.GREEN + random_letter + Style.RESET_ALL)
-                typed_letter = readchar.readkey()
-                if typed_letter == random_letter:
-                    interm_time = time() - interm_tot_time
-                    read_times.append(interm_time)
-                    read_correct_times.append(interm_time)
-                    interm_tot_time = time()
-                    cnt_correct_letters += 1
-                    correct_letters.append(random_letter)
-                elif typed_letter == " ":
-                    print(Fore.BLACK + Back.YELLOW + "You stopped the test!" + Style.RESET_ALL)
-                    exit()
-                else:
-                    interm_time = time() - interm_tot_time
-                    read_times.append(interm_time)
-                    read_incorrect_times.append(interm_time)
-                    interm_tot_time = time()
-                    cnt_incorrect_letters += 1
-                    wrong_letters.append(random_letter)
-                print("You typed the letter " + Fore.BLUE + typed_letter + Style.RESET_ALL)
-                inputs_list.append(Input(requested=random_letter, received=typed_letter, duration=interm_time))
-        except:
-            print("You must define a time value first! Use -h command.")
-            exit()
+                interm_time = time() - interm_tot_time
+                read_times.append(interm_time)
+                read_incorrect_times.append(interm_time)
+                interm_tot_time = time()
+                cnt_incorrect_letters += 1
+                wrong_letters.append(random_letter)
+            print("You typed the letter " + Fore.BLUE + typed_letter + Style.RESET_ALL)
+            inputs_list.append(Input(requested=random_letter, received=typed_letter, duration=interm_time))
+            cnt_time = time() - init_time
+            # if cnt_time >= max_time_to_type:
+            #     break
+    except:
+        print("You must define a time value first! Use -h command.")
+        exit()
 
     # contabilizar tempos
     avg_times = average(read_times)
     avg_correct_times = average(read_correct_times)
     avg_incorrect_times = average(read_incorrect_times)
 
+    print('Current test duration ' + str(cnt_time) + ' exceeds maximum of ' + str(max_time_to_type) + ".")
     print_dict()
 
 
