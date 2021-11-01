@@ -25,6 +25,7 @@ Statistics = {
     "type_miss_average_duration": 0.0
 }
 
+#Variáveis globais
 # geração de letras
 typed_letter = ""           # letra inserida pelo utilizador
 cnt_letters = 0             # contador de letras inseridas
