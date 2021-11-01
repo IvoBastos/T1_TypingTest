@@ -161,11 +161,6 @@ def typing_test_max_time(max_time):
 
     try:  # "try - except" inserido para o caso do utilizador não inserir um tempo no "-mv"
         while cnt_time <= max_time_to_type:
-            # if cnt_time >= max_time_to_type:
-            #     print('Current test duration ' + str(cnt_time) + ' exceeds maximum of ' + str(max_time_to_type) + ".")
-            #     break
-            # else:
-            #
             random_letter = random.choice(string.ascii_lowercase)
             print("Type the letter: " + Fore.GREEN + random_letter + Style.RESET_ALL)
             typed_letter = readchar.readkey()
@@ -189,8 +184,6 @@ def typing_test_max_time(max_time):
             print("You typed the letter " + Fore.BLUE + typed_letter + Style.RESET_ALL)
             inputs_list.append(Input(requested=random_letter, received=typed_letter, duration=interm_time))
             cnt_time = time() - init_time
-            # if cnt_time >= max_time_to_type:
-            #     break
     except:
         print("You must define a time value first! Use -h command.")
         exit()
