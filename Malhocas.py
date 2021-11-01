@@ -23,14 +23,14 @@ def tic():
     seconds = time.time()
     tempo_atual = time.localtime(seconds)
     tempo_segundos = time.mktime(tempo_atual)
-    return tempo_segundos
+    return seconds
 
 
 def tac():
     seconds = time.time()
     tempo_atual = time.localtime(seconds)
     tempo_segundos = time.mktime(tempo_atual)
-    return tempo_segundos
+    return seconds
 
 def modo_tempo(x):
     count = 0
@@ -193,9 +193,9 @@ def main():
     print("Typing test PSR. Press any key to begin the test")
     pressed_continue = readchar.readkey()
     if pressed_continue:
-        if args['utm']:
+        if args['use_time_mode']:
             modo_tempo(args['max_value'])
-        elif args['mv']:
+        elif args['max_value']:
             modo_teclas(args['max_value'])
         else:
             print('No mode selected')
