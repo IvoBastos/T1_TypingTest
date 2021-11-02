@@ -22,6 +22,8 @@ If you need any help use the command --help or -h
 
     ./main.py -h
 
-This program was developed by Group 6 in the context of the Robotic Systems Programming course.
+This program was developed by Group 6 in the context of the Programação de Sistemas Robóticos course.
+
+University of Aveiro
 
 November 2021
