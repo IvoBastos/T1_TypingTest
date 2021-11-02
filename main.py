@@ -102,7 +102,7 @@ def typing_test_max_val(max_inputs):
 
     while True:
         if cnt_letters == num_letters_to_type:
-            print("You typed " + str(cnt_letters) + " letters.")
+            print("You typed " + Fore.RED + str(cnt_letters) + Style.RESET_ALL + " letters.")
             break
         else:
             cnt_letters += 1
@@ -196,7 +196,7 @@ def typing_test_max_time(max_time):
     avg_correct_times = average(read_correct_times)
     avg_incorrect_times = average(read_incorrect_times)
 
-    print('Current test duration ' + str(cnt_time) + ' exceeds maximum of ' + str(max_time_to_type) + ".")
+    print('Current test duration ' + Fore.RED + str(cnt_time) + Style.RESET_ALL + ' exceeds maximum of ' + str(max_time_to_type) + ".")
     print_dict()
 
 
