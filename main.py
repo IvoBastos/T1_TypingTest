@@ -1,17 +1,17 @@
 #!/usr/bin/python3
 
-import string
-import random
-import readchar
-from colorama import Fore, Style, Back
-from time import time, ctime
-import argparse
-from collections import namedtuple
+import string #serve para importar as letras para serem geradas aleatóriamente
+import random # vai ser para gerar letras aleatórias
+import readchar #vai ler inputs
+from colorama import Fore, Style, Back #cor nas letras
+from time import time, ctime #contar o tempo
+import argparse #selecionar o numero de letras ou tempo
+from collections import namedtuple # mais facil para aceder aos campos pelos nomes em vex de ser pela posição
 import pprint
 
-Input = namedtuple("Input", ["requested", "received", "duration"])  # tuplo de inputs
+Input = namedtuple("Input", ["requested", "received", "duration"])  # tuplo de inputs; facilita a programação
 
-# dicionário de resultados
+# dicionário de resultados; pontos a analisar no final de cada "jogo"
 Statistics = {
     "accuracy": 0.0,
     "inputs": [Input(requested="", received="", duration=0.0)],
@@ -80,7 +80,7 @@ def print_dict():
 
 
 # número de inputs fixo
-def typing_test_max_val(max_inputs):
+def typing_test_max_val(max_inputs): # o global traz as variaveis que estão fora para dentro da função, alguma alteração vai alterar a variavel global
     global cnt_letters
     global cnt_correct_letters
     global cnt_incorrect_letters
