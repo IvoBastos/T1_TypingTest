@@ -24,6 +24,11 @@ If you need any help use the command --help or -h
 
 This program was developed by Group 6 in the context of the Programação de Sistemas Robóticos course.
 
+Jorge Fernandes
+Ivo Bastos
+Tomás Borges
+Pedro Malheiro
+
 University of Aveiro
 
 November 2021
